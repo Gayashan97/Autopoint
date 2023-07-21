@@ -30,7 +30,7 @@ export default function FormDialog(props) {
         event.preventDefault();
 
         try {
-            const response = await axios.post('https://car-price-prediction-system.onrender.com/api/user/forgot-password', { userEmail });
+            const response = await axios.post('https://autopoint-backend.onrender.com/api/user/forgot-password', { userEmail });
             const data = await response.json();
             setOpenAlert(true);
             setOpenReset(false);

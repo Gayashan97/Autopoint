@@ -22,14 +22,14 @@ async function sendResetPasswordEmail(user) {
     const transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
-            user: 'gayashantrox@gmail.com',
-            pass: 'uxujwdngbbfhzttv',
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD,
         }
     });
 
     // Set the email options
     const mailOptions = {
-        from: 'gayashantrox@gmail.com',
+        from: process.env.EMAIL,
         to: user.email,
         subject: 'Password Reset Request',
         text: `Hi ${user.fname},\n\nYou are receiving this email because you (or someone else) has requested a password reset for your account.\n\nPlease click on the following link or paste it into your browser to reset your password:\n\nhttp://localhost:3000/reset/${resetPasswordToken}\n\nThis link will expire in 1 hour.\n\nIf you did not request this, please ignore this email and your password will remain unchanged.\n\nBest,\nAUTOPOINT`

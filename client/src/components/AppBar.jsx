@@ -32,7 +32,7 @@ export default function ResponsiveAppBar(props) {
 
     useEffect(() => {
 
-        axios.get('https://car-price-prediction-system.onrender.com/api/user/' + user.id)
+        axios.get('https://autopoint-backend.onrender.com/api/user/' + user.id)
             .then(response => setUserDetails(response.data.user))
             .catch(error => console.error(error));
 

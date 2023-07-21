@@ -56,7 +56,7 @@ export default function Profile(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateUser)
         };
-        const response = await fetch('https://car-price-prediction-system.onrender.com/api/user/' + user.id, requestOptions);
+        const response = await fetch('https://autopoint-backend.onrender.com/api/user/' + user.id, requestOptions);
         const data = await response.json();
         if (response.ok) {
             window.location.reload(false);

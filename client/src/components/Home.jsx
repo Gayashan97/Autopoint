@@ -57,7 +57,7 @@ export default function Home({ socket }) {
         socket.emit("data", { selectedBrand, selectedModel, selectedTrim, selectedYear, selectedTransmissionType, selectedBodyType, selectedFuelType, selectedEngine, mileage });
 
         setTimeout(() => {
-            axios.get('https://car-price-prediction-system.onrender.com/api/prediction/')
+            axios.get('https://autopoint-backend.onrender.com/api/prediction/')
                 .then(responseData => {
                     setData(responseData.data.prediction)
                     setIsLoading(false);
@@ -94,7 +94,7 @@ export default function Home({ socket }) {
 
     useEffect(() => {
         // Fetch the list of brands from the backend API endpoint
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/brands')
+        axios.get('https://autopoint-backend.onrender.com/api/car/brands')
             .then(response => setBrands(response.data))
             .catch(error => console.error(error));
     }, []);
@@ -102,7 +102,7 @@ export default function Home({ socket }) {
     const handleBrandChange = (event) => {
         setSelectedBrand(event.target.innerHTML);
         // Update the selected brand and fetch the list of models
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/models/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/models/' + event.target.innerHTML)
             .then(response => setModels(response.data))
             .catch(error => console.error(error));
     };
@@ -110,32 +110,32 @@ export default function Home({ socket }) {
     const handleModelChange = (event) => {
         setSelectedModel(event.target.innerHTML);
         // Update the selected brand and fetch the list of models
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/trims/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/trims/' + event.target.innerHTML)
             .then(response => setTrims(response.data))
             .catch(error => console.error(error));
 
         //Fetch fuel types for model
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/fuel-types/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/fuel-types/' + event.target.innerHTML)
             .then(response => setFuelTypes(response.data))
             .catch(error => console.error(error));
 
         //Fetch transmission for model
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/transmission/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/transmission/' + event.target.innerHTML)
             .then(response => setTransmissionTypes(response.data))
             .catch(error => console.error(error));
 
         //Fetch body types for model
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/body-types/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/body-types/' + event.target.innerHTML)
             .then(response => setBodyTypes(response.data))
             .catch(error => console.error(error));
 
         //Fetch years for model
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/years/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/years/' + event.target.innerHTML)
             .then(response => setYears(response.data))
             .catch(error => console.error(error));
 
         //Fetch capacities for model
-        axios.get('https://car-price-prediction-system.onrender.com/api/car/capacities/' + event.target.innerHTML)
+        axios.get('https://autopoint-backend.onrender.com/api/car/capacities/' + event.target.innerHTML)
             .then(response => setCapacities(response.data))
             .catch(error => console.error(error));
 

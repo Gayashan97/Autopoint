@@ -28,7 +28,7 @@ function ResetPasswordForm() {
     }
     else {
       try {
-        const response = await axios.post('https://car-price-prediction-system.onrender.com/api/user/reset/' + resetPasswordToken.token, { newPassword });
+        const response = await axios.post('https://autopoint-backend.onrender.com/api/user/reset/' + resetPasswordToken.token, { newPassword });
         console.log(response.data);
       } catch (error) {
         console.log(error.response.data);

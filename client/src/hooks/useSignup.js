@@ -10,7 +10,7 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
 
-    const response = await fetch('https://car-price-prediction-system.onrender.com/api/user/signup', {
+    const response = await fetch('https://autopoint-backend.onrender.com/api/user/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ fname, lname, email, password, confirmPassword })
