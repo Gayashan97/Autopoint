@@ -18,7 +18,7 @@ export default function App() {
   const [socketInstance, setSocketInstance] = useState("");
   
   useEffect(() => {
-    const socket = io("https://autopoint-model.onrender.com");
+    const socket = io("https://autopoint-model.onrender.com",
     {
       transports: ["websocket"],
       cors: {
