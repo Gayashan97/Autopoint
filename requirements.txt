@@ -6,4 +6,3 @@ pymongo==4.3.3
 Requests==2.31.0
 schedule==1.2.0
 gunicorn==19.7.1
-eventlet==0.33.3
