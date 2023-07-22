@@ -19,16 +19,14 @@ export default function App() {
   
   useEffect(() => {
     const socket = io("https://autopoint-model.onrender.com");
-    //{
-      //transports: ["websocket"],
-      // cors: {
-      //   origin: "http://localhost:3000/",
-      // },
-    //});
+    {
+      transports: ["websocket"],
+      cors: {
+        origin: "https://autopoint-model.onrender.com",
+      },
+    });
 
     setSocketInstance(socket);
-
-    console.log(socket);
     
   }, []);
 
