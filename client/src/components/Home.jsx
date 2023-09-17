@@ -68,7 +68,9 @@ export default function Home({ socket }) {
 
     }
 
-    
+    useEffect( () => {
+        setOpenWelcome(true);
+    }, [] )
 
     useEffect(() => {
 
@@ -91,6 +93,7 @@ export default function Home({ socket }) {
     };
 
     const [showPrice, setShowPrice] = React.useState(false);
+    const [openWelcome, setOpenWelcome] = React.useState(false);
 
     useEffect(() => {
         // Fetch the list of brands from the backend API endpoint
@@ -271,7 +274,7 @@ export default function Home({ socket }) {
 
                 <Copyright sx={{ mt: 7 }} />
                 <BasicModal data={data} isLoading={isLoading} showPrice={showPrice} setShowPrice={setShowPrice} />
-                <TransitionsModal />
+                <TransitionsModal openWelcome={openWelcome} setOpenWelcome={setOpenWelcome} />
             </div>
         </Paper>
     </ThemeProvider>
